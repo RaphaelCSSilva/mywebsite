@@ -1,0 +1,11 @@
+{
+  "name": "mywebsite",
+  "version": "1.0.0",
+  "description": "Personal Website",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Raphael Silva",
+  "license": "ISC"
+}
