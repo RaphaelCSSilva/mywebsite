@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {
-  color: #292929;
+  color: #c6c6c6;
   font-weight: 600;
 }
 
@@ -893,4 +893,16 @@ blockquote {
   
   padding: 1em;
   border: solid;
+}
+
+code {
+  font-family: Consolas,"courier new";
+  color: rgb(255, 255, 255);
+  background-color: #463d3daf;
+  padding: 5px;
+  font-size: 105%;
+}
+
+img {
+  max-width: 100%;
 }
