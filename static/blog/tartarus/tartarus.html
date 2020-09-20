@@ -82,14 +82,44 @@
                         </ul>
                       </div>
                       <br>
-                      <section id="">
-                        <h2>Teste</h2>
-                        <p class="mb-30">Under construction.</p>
-
-                      </section>
-                        <code>nmap -sCV -oN nmap/initial 10.10.39.175</code>
+                      <section id="nmap">
+                        <h2>Nmap</h2>
+                        <p class="mb-30">As with most rooms, let's start off by running some nmap scans. For starters, I like to run it with the -sC and -sV (same thing as -sCV) flags for running default scripts and enumerating service/version information respectively.</p>
+                        <code>nmap -sCV -oN nmap/initial [IP]</code>
                         <p class="mb-30">And now lets check the output:</p>
-                        <img src="../../assets/img/blog/tartarus/nmap-initial.png" alt="">
+                        <img src="../../assets/img/blog/tartarus/nmap-initial.png" alt="nmap command output">
+                        <p class="mb-30">Here we can see there is an FTP server with anonymous login enabled, so that seems like a good place to start checking out right away with some manual enumeration.</p>
+                        <p class="mb-30">We can also see an ssh connection and an apache http server, which is also worth checking out manually.</p>
+                      </section>
+                      <section id="webServer">
+                        <h2>Web Server</h2>
+                        <p class="mb-30"> This is just the default apache page, and looking at the source code also does not reveal anything useful, so let's just move on to enumerating FTP.</p>
+                        <img src="../../assets/img/blog/tartarus/apache-default.png" alt="default apache page">
+                        <p class="mb-30"></p>
+                      </section>
+                      <section id="ftp">
+                        <h2>FTP</h2>
+                        <p class="mb-30">
+                          As we had already seen from our nmap scan, FTP allows us to login anonymously, this means we can login with username 'anonymous' or 'ftp' and any password we want.
+                        </p>
+                        <img src="../../assets/img/blog/tartarus/ftp-anonymous.png" alt="ftp anonymous login">
+                        <p class="mb-30">
+                          Afterwards we can start listing the contents of the directory.
+                        </p>
+                        <img src="../../assets/img/blog/tartarus/ftp-ls1.png" alt="ftp listing contents of dir">
+                        <p class="mb-30">We can see a file 'test.txt', to see the contents we can download the file with the <code>get</code> command.</p>
+                        <code>get test.txt</code>
+                        <img src="../../assets/img/blog/tartarus/test-txt.png" alt="test.txt contents">
+                        <p class="mb-30">Unfortunately, it's just a test file for vsFTPd.</p>
+                        <p>However, if we look closely at the output of the <code>ls -la</code> command I did above, we can see a hidden directory named <code>...</code>, let's move into it.</p>
+                        <img src="../../assets/img/blog/tartarus/ftp-ls2.png" alt="ftp listing contents of dir">
+                        <p class="mb-30">
+                          Here we could see anothe directory <code>...</code> and after moving into that one we see a file 'yougotgoodeyes.txt' and the hidden directories stop. So let's <code>get</code> the file and exit ftp.
+                        </p>
+                        <img src="../../assets/img/blog/tartarus/yougotgoodeyes.png" alt="yougotgoodeyes file content">
+                        <p class="mb-30">This seems like a path to something, let's try it on the web server and see if it takes us anywhere.</p>
+                        <img src="../../assets/img/blog/tartarus/hidden-dir.png" alt="/super-secret page">
+                      </section>
                     </div>
                   </div>
                 </div>
