@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta property="og:title" content="The Rock" />
+    <meta property="og:type" content="video.movie" />
+    <meta property="og:url" content="https://raphaelsilva.pt/tests/img2.svg" />
+    <meta property="og:image" content="https://raphaelsilva.pt/tests/img2.svg" />
+    <!-- add oembed support -->
+    <link rel="alternate" type="application/json+oembed" href="https://raphaelsilva.pt/tests/oembed.json">
+    <link rel="alternate" type="text/xml+oembed" href="https://raphaelsilva.pt/tests/oembed.xml">
+    
+</head>
+<body>
+    Test 123 Stored XSS!
+    <!-- embeds "https://raphaelsilva.pt/tests/index.html" into this page -->
+    <embed src="https://raphaelsilva.pt/tests/index.html" width="100%" height="100%" />
+</body>
+</html>

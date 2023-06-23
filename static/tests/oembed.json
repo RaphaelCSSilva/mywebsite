@@ -1,0 +1,12 @@
+{
+    "version": "1.7",
+    "type": "photo",
+    "width": 240,
+    "height": 160,
+    "title": "Photo 1",
+    "url": "https://raphaelsilva.pt/tests/img2.svg",
+    "author_name": "Raphael Silva",
+    "author_url": "https://raphaelsilva.pt",
+    "provider_name": "Raphael Silva",
+    "provider_url": "https://raphaelsilva.pt"
+}
